@@ -18,7 +18,21 @@ router.put('/:id/marks', async (req, res, next) => {
     if (!evaluation) return res.status(404).json({ message: 'Evaluation not found' });
     if (evaluation.isLocked) return res.status(400).json({ message: 'Marks are locked' });
 
-    evaluation.marks = req.body.marks;
+    const { marks } = req.body;
+
+    // VALIDATION: Check each mark is within valid range
+    for (const mark of marks) {
+      if (mark.score !== null && mark.score !== undefined) {
+        if (mark.score < 0) {
+          return res.status(400).json({ message: `${mark.parameter} cannot be negative` });
+        }
+        if (mark.score > mark.maxScore) {
+          return res.status(400).json({ message: `${mark.parameter} cannot exceed ${mark.maxScore}` });
+        }
+      }
+    }
+
+    evaluation.marks = marks;
     await evaluation.save();
     res.json(evaluation);
   } catch (err) { next(err); }

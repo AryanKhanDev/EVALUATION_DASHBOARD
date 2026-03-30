@@ -6,7 +6,7 @@ const Mentor   = require('./models/Mentor');
 const Student  = require('./models/Student');
 
 const students = [
-  { name: 'Alice Johnson', email: 'alice@college.edu', rollNo: 'CS001' },
+  { name: 'Alice Johnson', email: 'aryankhan7847@gmail.com', rollNo: 'CS001' },
   { name: 'Bob Smith',     email: 'bob@college.edu',   rollNo: 'CS002' },
   { name: 'Carol White',   email: 'carol@college.edu', rollNo: 'CS003' },
   { name: 'David Brown',   email: 'david@college.edu', rollNo: 'CS004' },

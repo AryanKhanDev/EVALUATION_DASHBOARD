@@ -18,11 +18,23 @@ function Marks() {
   useEffect(() => { load(); }, [mentorId]);
 
   const handleScore = (evalId, paramIdx, value) => {
+    let numValue = value === '' ? null : Number(value);
+    
+    // Clamp value: don't allow negative or over maxScore
+    if (numValue !== null) {
+      // Find the current mark to get maxScore
+      const evaluation = evals.find(e => e._id === evalId);
+      const maxScore = evaluation?.marks[paramIdx]?.maxScore || 10;
+      
+      if (numValue < 0) numValue = 0;
+      if (numValue > maxScore) numValue = maxScore;
+    }
+    
     setEvals((prev) =>
       prev.map((e) => {
         if (e._id !== evalId) return e;
         const marks = e.marks.map((m, i) =>
-          i === paramIdx ? { ...m, score: value === '' ? null : Number(value) } : m
+          i === paramIdx ? { ...m, score: numValue } : m
         );
         return { ...e, marks };
       })
@@ -31,6 +43,16 @@ function Marks() {
 
   const saveMarks = async (evaluation) => {
     try {
+      // Validate before sending to backend
+      for (const mark of evaluation.marks) {
+        if (mark.score !== null && mark.score !== undefined) {
+          if (mark.score < 0 || mark.score > mark.maxScore) {
+            setMsg(`${mark.parameter} must be between 0 and ${mark.maxScore}`);
+            return;
+          }
+        }
+      }
+
       await updateMarks(evaluation._id, evaluation.marks);
       setMsg('Marks saved!');
     } catch (err) {

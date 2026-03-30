@@ -1,16 +1,120 @@
-# React + Vite
+# 📊 Evaluation Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full-stack web application designed to manage and visualize evaluation data efficiently. This project demonstrates a structured approach to building scalable dashboards with a modern frontend and backend architecture.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Features
 
-## React Compiler
+* 📈 Interactive dashboard UI
+* 🧩 Modular component-based frontend
+* 🔌 Backend integration for data handling
+* 📊 Real-time or dynamic data rendering (extendable)
+* ⚡ Fast development using Vite
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🛠 Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Frontend
+
+* React
+* Vite
+
+### Backend
+
+* Node.js *(assumed — update if different)*
+* Express *(update if used)*
+
+### Database
+
+* MongoDB / PostgreSQL *(update based on what you're using)*
+
+---
+
+## 📁 Project Structure
+
+```
+root/
+ ├── frontend/      # React + Vite app
+ ├── backend/       # Server-side logic
+ └── README.md
+```
+
+---
+
+## ⚙️ Setup Instructions
+
+### 1️⃣ Clone the repository
+
+```
+git clone https://github.com/your-username/EVALUATION_DASHBOARD.git
+cd EVALUATION_DASHBOARD
+```
+
+---
+
+### 2️⃣ Install dependencies
+
+#### Frontend
+
+```
+cd frontend
+npm install
+```
+
+#### Backend
+
+```
+cd ../backend
+npm install
+```
+
+---
+
+### 3️⃣ Configure environment variables
+
+Create a `.env` file in backend:
+
+```
+PORT=5000
+MONGO_URI=your_mongodb_connection_string
+```
+
+---
+
+### 4️⃣ Run the project
+
+#### Start backend
+
+```
+npm start
+```
+
+#### Start frontend
+
+```
+cd frontend
+npm run dev
+```
+
+---
+
+## 📌 Future Improvements
+
+* 🔐 Authentication system
+* 📊 Advanced analytics & charts
+* 🌐 Deployment (Docker / Cloud)
+* 📱 Responsive UI enhancements
+
+---
+
+## 👨‍💻 Author
+
+* Aryan Khan
+
+---
+
+## ⭐ Notes
+
+This project is part of a full-stack learning and development process, focusing on clean architecture and scalability.

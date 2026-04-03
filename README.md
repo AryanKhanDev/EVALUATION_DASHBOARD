@@ -51,4 +51,36 @@ npm install
 npm run dev
 ```
 
-### 4. Open the app
+### 4. Open the app - http://localhost:5173/
+
+
+## API Endpoints
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/mentors` | Get all mentors |
+| GET | `/api/mentors/:id` | Get single mentor |
+| POST | `/api/mentors/:id/assign` | Assign student to mentor |
+| DELETE | `/api/mentors/:id/remove/:studentId` | Remove student from mentor |
+| GET | `/api/students` | Get all students |
+| GET | `/api/students?unassigned=true` | Get unassigned students |
+| GET | `/api/evaluations/mentor/:mentorId` | Get all evaluations for a mentor |
+| PUT | `/api/evaluations/:id/marks` | Update marks for an evaluation |
+| POST | `/api/evaluations/submit/:mentorId` | Submit and lock all evaluations |
+
+## Environment Variables
+
+| Variable | Description |
+|----------|-------------|
+| `PORT` | Backend server port (default 5000) |
+| `MONGO_URI` | MongoDB Atlas connection string |
+| `EMAIL_USER` | Gmail address for sending notifications |
+| `EMAIL_PASS` | Gmail app password (not your regular password) |
+
+## Known Issues
+
+- College/corporate WiFi may block port 27017. Use a mobile hotspot if MongoDB connection fails.
+- Free tier MongoDB Atlas clusters pause after inactivity — resume from the Atlas dashboard if connection fails.
+
+## License
+MIT
